@@ -2,18 +2,19 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
   width: 100%;
-  max-width: 864px;
+  max-width: 1180px;
   margin: 0 auto;
 `
 
 export const InfoContainer = styled.div`
   width: 100%;
+  max-width: 864px;
+
   padding: 2rem;
   background: ${({ theme }) => theme.colors['base-profile']};
   border-radius: 8px;
   box-shadow: 0px 2px 28px 0px rgba(0, 0, 0, 0.2);
-  margin-top: -5rem;
-  margin-bottom: 4.5rem;
+  margin: -5.3rem auto 4.5rem auto;
 
   display: flex;
   gap: 2rem;
