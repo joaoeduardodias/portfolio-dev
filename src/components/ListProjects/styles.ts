@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export const ListProjectsContainer = styled.section`
+  margin-bottom: 2rem;
   h2 {
     font-size: ${({ theme }) => theme.textSizes['title-title-xl']};
     color: ${({ theme }) => theme.colors['base-title']};
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   > ul {

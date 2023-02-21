@@ -6,6 +6,8 @@ import {
   InfoContainer,
   InfoContent,
   ListInfos,
+  TechnologiesContainer,
+  Technology,
 } from '@/styles/pages/home'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -13,8 +15,11 @@ import {
   FaEnvelope,
   FaExternalLinkAlt,
   FaLinkedin,
+  FaNodeJs,
+  FaReact,
   FaWhatsappSquare,
 } from 'react-icons/fa'
+import { SiNextdotjs, SiStyledcomponents } from 'react-icons/si'
 import imgProfile from '../assets/perfil.png'
 export default function Home() {
   return (
@@ -74,7 +79,25 @@ export default function Home() {
             </ListInfos>
           </InfoContent>
         </InfoContainer>
-        {/* aqui deve ficar o container de tecnologias */}
+        <TechnologiesContainer>
+          <h2>Conhecimentos</h2>
+          <Technology>
+            <FaReact />
+            <h3>ReactJS</h3>
+          </Technology>
+          <Technology>
+            <SiNextdotjs />
+            <h3>NextJS</h3>
+          </Technology>
+          <Technology>
+            <FaNodeJs />
+            <h3>NodeJS</h3>
+          </Technology>
+          <Technology>
+            <SiStyledcomponents />
+            <h3>Styled-components</h3>
+          </Technology>
+        </TechnologiesContainer>
 
         <ListProjects />
       </HomeContainer>

@@ -81,3 +81,35 @@ export const ExternalLink = styled.div`
     transition: 0.2s;
   }
 `
+export const TechnologiesContainer = styled.section`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 22.5rem));
+  grid-gap: 2rem;
+  grid-auto-flow: dense;
+  margin-bottom: 4rem;
+
+  h2 {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    font-size: ${({ theme }) => theme.textSizes['title-title-xl']};
+    color: ${({ theme }) => theme.colors['base-title']};
+    font-weight: 700;
+  }
+`
+export const Technology = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: ${({ theme }) => theme.colors['base-post']};
+  border-radius: 6px;
+  height: 5rem;
+  padding: 1rem;
+  h3 {
+    font-size: ${({ theme }) => theme.textSizes['title-title-l']};
+    color: ${({ theme }) => theme.colors['base-title']};
+  }
+
+  svg {
+    font-size: 3rem;
+  }
+`
