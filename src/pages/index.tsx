@@ -9,8 +9,12 @@ import {
 } from '@/styles/pages/home'
 import Head from 'next/head'
 import Image from 'next/image'
-import { DiGitBranch } from 'react-icons/di'
-import { FaBuilding, FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
+import {
+  FaEnvelope,
+  FaExternalLinkAlt,
+  FaLinkedin,
+  FaWhatsappSquare,
+} from 'react-icons/fa'
 import imgProfile from '../assets/perfil.png'
 export default function Home() {
   return (
@@ -28,7 +32,7 @@ export default function Home() {
             src={imgProfile}
             width={148}
             height={148}
-            alt="Foto com o rosto do desenvolvedor front-end João Dias"
+            alt="Foto de perfil do desenvolvedor front-end João Dias"
           />
           <InfoContent>
             <div>
@@ -45,23 +49,27 @@ export default function Home() {
               </ExternalLink>
             </div>
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
-              cupiditate pariatur nobischitecto aperiam enim quibusdam
-              reiciendis praesentium officiis animi.
+              <strong>
+                Desenvolvedor front-end ReactJS | NextJS | Typescript.
+              </strong>
+              <br />
+              Apaixonado por tecnologia, gosto de criar coisas novas, e quero
+              contribuir na transformação do mundo! <br /> Veja abaixo os meus
+              conhecimentos e alguns projetos criados por mim!
             </p>
 
             <ListInfos>
               <li>
-                <FaGithub />
-                <span>joaoeduardodias</span>
+                <FaEnvelope />
+                <span>oi@devjoaodias.com.br</span>
               </li>
               <li>
-                <FaBuilding />
-                <span>Freelancer</span>
+                <FaLinkedin />
+                <span>devjoaodias</span>
               </li>
               <li>
-                <DiGitBranch />
-                <span>500 commits</span>
+                <FaWhatsappSquare />
+                <span>(67) 99890-8771</span>
               </li>
             </ListInfos>
           </InfoContent>

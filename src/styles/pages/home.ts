@@ -14,7 +14,7 @@ export const InfoContainer = styled.div`
   background: ${({ theme }) => theme.colors['base-profile']};
   border-radius: 8px;
   box-shadow: 0px 2px 28px 0px rgba(0, 0, 0, 0.2);
-  margin: -5.3rem auto 4.5rem auto;
+  margin: -7.3rem auto 4.5rem auto;
 
   display: flex;
   gap: 2rem;
@@ -57,6 +57,7 @@ export const ListInfos = styled.ul`
 
     svg {
       font-size: 18px;
+      color: ${({ theme }) => theme.colors['base-label']};
     }
   }
 `
