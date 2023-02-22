@@ -1,3 +1,4 @@
+import { FormContact } from '@/components/FormContact'
 import { Header } from '@/components/Header'
 import { ListProjects } from '@/components/ListProjects'
 import {
@@ -112,7 +113,7 @@ export default function Home() {
 
         <ListProjects />
 
-        <div id="contact">contato</div>
+        <FormContact id="contact" />
       </HomeContainer>
       <footer>Criado por João Dias | 2023</footer>
     </>
