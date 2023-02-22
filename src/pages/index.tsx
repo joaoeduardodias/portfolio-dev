@@ -58,7 +58,7 @@ export default function Home() {
 
             <ListInfos>
               <ButtonMail>
-                <Link href="#contact">
+                <Link href="/#contact" scroll={false}>
                   <FaEnvelope />
                   <span>E-mail</span>
                 </Link>

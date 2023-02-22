@@ -19,6 +19,9 @@ export const GlobalStyles = createGlobalStyle`
       border-radius: 999px;
     }
 }
+html {
+  scroll-behavior: smooth;
+}
 :focus {
   outline: 0;
   box-shadow: 0 0 0 1px ${({ theme }) => theme.colors['brand-blue']};
