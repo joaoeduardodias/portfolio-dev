@@ -1,7 +1,10 @@
 import { Header } from '@/components/Header'
 import { ListProjects } from '@/components/ListProjects'
 import {
-  ExternalLink,
+  ButtonGithub,
+  ButtonLinkedin,
+  ButtonMail,
+  ButtonWhatsapp,
   HomeContainer,
   InfoContainer,
   InfoContent,
@@ -11,13 +14,14 @@ import {
 } from '@/styles/pages/home'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   FaEnvelope,
-  FaExternalLinkAlt,
+  FaGithub,
   FaLinkedin,
   FaNodeJs,
   FaReact,
-  FaWhatsappSquare,
+  FaWhatsapp,
 } from 'react-icons/fa'
 import { SiNextdotjs, SiStyledcomponents } from 'react-icons/si'
 import imgProfile from '../assets/perfil.png'
@@ -40,19 +44,8 @@ export default function Home() {
             alt="Foto de perfil do desenvolvedor front-end João Dias"
           />
           <InfoContent>
-            <div>
-              <h1>João Dias</h1>
-              <ExternalLink>
-                <a
-                  href="https://github.com/joaoeduardodias"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  github
-                </a>
-                <FaExternalLinkAlt />
-              </ExternalLink>
-            </div>
+            <h1>João Dias</h1>
+
             <p>
               <strong>
                 Desenvolvedor front-end ReactJS | NextJS | Typescript.
@@ -64,18 +57,36 @@ export default function Home() {
             </p>
 
             <ListInfos>
-              <li>
-                <FaEnvelope />
-                <span>oi@devjoaodias.com.br</span>
-              </li>
-              <li>
-                <FaLinkedin />
-                <span>devjoaodias</span>
-              </li>
-              <li>
-                <FaWhatsappSquare />
-                <span>(67) 99890-8771</span>
-              </li>
+              <ButtonMail>
+                <Link href="#contact">
+                  <FaEnvelope />
+                  <span>E-mail</span>
+                </Link>
+              </ButtonMail>
+              <ButtonLinkedin>
+                <Link
+                  href="https://www.linkedin.com/in/devjoaodias"
+                  target="_blank"
+                >
+                  <FaLinkedin />
+                  <span>Linkedin</span>
+                </Link>
+              </ButtonLinkedin>
+              <ButtonGithub>
+                <Link href="https://github.com/joaoeduardodias" target="_blank">
+                  <FaGithub />
+                  <span>GitHub</span>
+                </Link>
+              </ButtonGithub>
+              <ButtonWhatsapp>
+                <Link
+                  href="https://wa.me/5567998908771?text=Ol%C3%A1%2C+vim+pelo+seu+portf%C3%B3lio+e+gostaria+de+saber+mais+sobre+voc%C3%AA%21"
+                  target="_blank"
+                >
+                  <FaWhatsapp />
+                  <span>Whatsapp</span>
+                </Link>
+              </ButtonWhatsapp>
             </ListInfos>
           </InfoContent>
         </InfoContainer>
@@ -100,7 +111,10 @@ export default function Home() {
         </TechnologiesContainer>
 
         <ListProjects />
+
+        <div id="contact">contato</div>
       </HomeContainer>
+      <footer>Criado por João Dias | 2023</footer>
     </>
   )
 }

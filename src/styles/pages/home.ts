@@ -48,18 +48,38 @@ export const InfoContent = styled.div`
 export const ListInfos = styled.ul`
   display: flex;
   gap: 1.5rem;
+`
+export const BaseButtonContact = styled.li`
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
 
-  li {
+  > a {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    padding: 0.3rem 1rem;
 
-    svg {
-      font-size: 18px;
-      color: ${({ theme }) => theme.colors['base-label']};
-    }
+    gap: 0.5rem;
   }
+  svg {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+`
+
+export const ButtonMail = styled(BaseButtonContact)`
+  color: black !important;
+  background: ${({ theme }) => theme.colors['base-title']};
+`
+export const ButtonLinkedin = styled(BaseButtonContact)`
+  background: #0a66c2;
+`
+export const ButtonGithub = styled(BaseButtonContact)`
+  background: #1c1f23;
+`
+export const ButtonWhatsapp = styled(BaseButtonContact)`
+  background: #0ea52d;
 `
 
 export const ExternalLink = styled.div`
@@ -101,9 +121,41 @@ export const Technology = styled.div`
   align-items: center;
   gap: 1rem;
   background: ${({ theme }) => theme.colors['base-post']};
-  border-radius: 6px;
   height: 5rem;
   padding: 1rem;
+
+  // border animation
+
+  --border-width: 2px;
+  position: relative;
+  border-radius: var(--border-width);
+
+  &:hover::after {
+    position: absolute;
+
+    content: '';
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: -1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      rgba(97, 218, 251, 1) 20%,
+      rgba(163, 164, 164, 1) 58%,
+      rgba(73, 110, 161, 1) 66%,
+      rgba(41, 199, 32, 1) 74%,
+      rgba(100, 154, 168, 1) 100%,
+      rgba(34, 35, 101, 1) 40%,
+      rgba(33, 34, 34, 1) 41%,
+      rgba(182, 52, 214, 1) 86%
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+
   h3 {
     font-size: ${({ theme }) => theme.textSizes['title-title-l']};
     color: ${({ theme }) => theme.colors['base-title']};
@@ -111,5 +163,11 @@ export const Technology = styled.div`
 
   svg {
     font-size: 3rem;
+  }
+
+  @keyframes moveGradient {
+    50% {
+      background-position: 100% 50%;
+    }
   }
 `
