@@ -5,6 +5,10 @@ export const HomeContainer = styled.div`
   max-width: 1180px;
   padding: 1rem;
   margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    max-width: 864px;
+  }
 `
 
 export const InfoContainer = styled.div`
@@ -31,6 +35,14 @@ export const InfoContainer = styled.div`
     justify-content: space-between;
     align-items: flex-start;
   }
+
+  @media (max-width: 462px) {
+    padding: 1rem;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -10.3rem;
+  }
 `
 
 export const InfoContent = styled.div`
@@ -38,17 +50,31 @@ export const InfoContent = styled.div`
     font-size: ${({ theme }) => theme.textSizes['title-title-l']};
     color: ${({ theme }) => theme.colors['base-title']};
     margin-bottom: 0.5rem;
+    @media (max-width: 462px) {
+      text-align: center;
+    }
   }
   p {
     font-size: ${({ theme }) => theme.textSizes['text-text-m']};
     line-height: 160%;
     margin-bottom: 1.5rem;
+    @media (max-width: 462px) {
+      font-size: ${({ theme }) => theme.textSizes['text-text-s']};
+      width: 90%;
+      margin: 0 auto;
+      text-align: center;
+    }
   }
 `
 
 export const ListInfos = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
+  @media (max-width: 780px) {
+    justify-content: center;
+    gap: 1rem;
+  }
 `
 export const BaseButtonContact = styled.li`
   border-radius: 4px;
@@ -62,6 +88,9 @@ export const BaseButtonContact = styled.li`
     padding: 0.3rem 1rem;
 
     gap: 0.5rem;
+    @media (max-width: 780px) {
+      padding: 0.2rem 0.5rem;
+    }
   }
   svg {
     font-size: 1rem;
@@ -104,7 +133,7 @@ export const ExternalLink = styled.div`
 `
 export const TechnologiesContainer = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 22.5rem));
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   grid-gap: 2rem;
   grid-auto-flow: dense;
   margin-bottom: 4rem;
@@ -115,6 +144,9 @@ export const TechnologiesContainer = styled.section`
     font-size: ${({ theme }) => theme.textSizes['title-title-xl']};
     color: ${({ theme }) => theme.colors['base-title']};
     font-weight: 700;
+    @media (max-width: 460px) {
+      text-align: center;
+    }
   }
 `
 export const Technology = styled.div`
@@ -170,5 +202,9 @@ export const Technology = styled.div`
     50% {
       background-position: 100% 50%;
     }
+  }
+
+  @media (max-width: 460px) {
+    justify-content: center;
   }
 `

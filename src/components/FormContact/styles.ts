@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
 export const FormContactContainer = styled.form`
+  --grid-item--max-width: calc((100% - 1rem) / 2);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(max(18rem, var(--grid-item--max-width)), 1fr)
+  );
   grid-gap: 1rem;
   grid-auto-flow: dense;
   margin-bottom: 5rem;
@@ -31,6 +36,10 @@ export const FormContactContainer = styled.form`
 
     &:hover {
       background: #0f7722;
+    }
+    @media (max-width: 430px) {
+      margin-left: 0;
+      width: 100%;
     }
   }
 `

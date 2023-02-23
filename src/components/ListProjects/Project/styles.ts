@@ -61,6 +61,13 @@ export const ProjectContainer = styled.li`
       }
     }
   }
+  @media (max-width: 460px) {
+    transform: translateY(none);
+
+    ${ImageContainer} {
+      transform: scale(1);
+    }
+  }
 `
 
 export const TagsContainer = styled.ul`
