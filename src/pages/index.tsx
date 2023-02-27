@@ -6,6 +6,7 @@ import {
   ButtonLinkedin,
   ButtonMail,
   ButtonWhatsapp,
+  Footer,
   HomeContainer,
   InfoContainer,
   InfoContent,
@@ -115,7 +116,7 @@ export default function Home() {
 
         <FormContact id="contact" />
       </HomeContainer>
-      <footer>Criado por João Dias | 2023</footer>
+      <Footer>Criado por João Dias | 2023</Footer>
     </>
   )
 }

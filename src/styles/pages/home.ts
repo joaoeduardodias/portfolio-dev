@@ -208,3 +208,10 @@ export const Technology = styled.div`
     justify-content: center;
   }
 `
+export const Footer = styled.footer`
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+`
