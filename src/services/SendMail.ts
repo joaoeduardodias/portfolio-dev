@@ -3,21 +3,20 @@ import axios from 'axios'
 interface SenderMailProps {
   name: string
   email: string
-  content: string
+  message: string
 }
 
 export const sendMail = async ({
-  content,
   name,
   email,
+  message,
 }: SenderMailProps): Promise<any> => {
-  const data = {
-    name,
-    email,
-    content,
-  }
   try {
-    return axios.post('/api/contact', data)
+    return axios.post('/api/contact', {
+      name,
+      email,
+      message,
+    })
   } catch (error) {
     return error
   }

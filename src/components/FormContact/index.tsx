@@ -4,6 +4,7 @@ import { FormHTMLAttributes, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import * as zod from 'zod'
+import { Spinner } from '../Spinner'
 import {
   FormContactContainer,
   InputContainer,
@@ -30,7 +31,7 @@ export function FormContact({ ...props }: FormContactProps) {
     try {
       setIsLoading(true)
 
-      await sendMail({ email, name, content: message })
+      await sendMail({ email, name, message })
       reset()
     } catch (error) {
       toast('Erro encontrado, por favor tente novamente!', {
@@ -70,7 +71,7 @@ export function FormContact({ ...props }: FormContactProps) {
           placeholder="Digite sua mensagem..."
         />
       </TextAreaContainer>
-      <button disabled={isLoading}>Enviar</button>
+      <button disabled={isLoading}>{isLoading ? <Spinner /> : 'Enviar'}</button>
     </FormContactContainer>
   )
 }

@@ -2,14 +2,16 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import nodemailer from 'nodemailer'
 
 const email = process.env.MAIL_ADDRESS
+const emailLogin = process.env.MAIL_LOGIN
 const password = process.env.MAIL_PASSWORD
 
 const transporter = nodemailer.createTransport({
   host: 'smtp.zoho.com',
   port: 465,
-  // secure: true,
+  secure: true,
+
   auth: {
-    user: email,
+    user: emailLogin,
     pass: password,
   },
 })
@@ -17,23 +19,26 @@ const transporter = nodemailer.createTransport({
 interface MailerProps {
   senderMail: string
   name: string
-  text: string
+  message: string
 }
 
-const mailer = ({ senderMail, name, text }: MailerProps): Promise<unknown> => {
-  const from =
-    name && senderMail ? `${name} <${senderMail}> ` : `${name || senderMail}`
+const mailer = ({
+  senderMail,
+  name,
+  message,
+}: MailerProps): Promise<unknown> => {
+  const from = name && email ? `${name} <${email}> ` : `${name || email}`
 
-  const message = {
+  const templateEmail = {
     from,
     to: `${email}`,
     subject: `Nova mensagem de contato - ${name}`,
-    text: `Email - <${senderMail}> \n ${text}`,
-    replyTo: from,
+    text: `Nome: ${name} \n Email: ${senderMail} \n Mensagem: ${message}`,
+    replyTo: `${name} <${senderMail}> `,
   }
 
   return new Promise((resolve, reject) => {
-    transporter.sendMail(message, (error, info) => {
+    transporter.sendMail(templateEmail, (error, info) => {
       error ? reject(error) : resolve(info)
     })
   })
@@ -44,12 +49,12 @@ export default async (
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> => {
-  const { senderMail, name, content } = req.body
+  const { email, name, message } = req.body
 
-  if (senderMail === '' || name === '' || content === '') {
+  if (!email || !name || !message) {
     return res.status(403).json({ error: 'Missing information!' })
   }
 
-  const mailerRes = await mailer({ senderMail, name, text: content })
+  const mailerRes = await mailer({ senderMail: email, name, message })
   res.send(mailerRes)
 }
