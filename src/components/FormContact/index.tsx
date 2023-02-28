@@ -2,9 +2,10 @@ import { sendMail } from '@/services/SendMail'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormHTMLAttributes, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import toast from 'react-hot-toast'
+import { toast } from 'react-toastify'
 import * as zod from 'zod'
 import { Spinner } from '../Spinner'
+
 import {
   FormContactContainer,
   InputContainer,
@@ -34,20 +35,11 @@ export function FormContact({ ...props }: FormContactProps) {
       await sendMail({ email, name, message })
       reset()
     } catch (error) {
-      toast('Erro encontrado, por favor tente novamente!', {
-        style: {
-          background: 'red',
-          color: 'white',
-        },
-      })
+      setIsLoading(false)
+      toast.error('Erro encontrado, por favor tente novamente!')
     } finally {
       setIsLoading(false)
-      toast('Mensagem enviada com sucesso!', {
-        style: {
-          background: 'green',
-          color: 'white',
-        },
-      })
+      toast.success('E-mail enviado com sucesso!')
     }
   }
 
