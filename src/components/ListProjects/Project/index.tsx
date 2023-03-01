@@ -1,4 +1,3 @@
-import projectImg from '@/assets/projectImg.png'
 import Image from 'next/image'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import { TbWorldUpload } from 'react-icons/tb'
@@ -9,13 +8,28 @@ import {
   ProjectDetails,
   TagsContainer,
 } from './styles'
-export function Project() {
+
+interface ProjectProps {
+  title: string
+  description: string
+  image: string
+  link_web?: string
+  link_github: string
+}
+
+export function Project({
+  description,
+  image,
+  link_github,
+  title,
+  link_web,
+}: ProjectProps) {
   return (
-    <ProjectContainer>
+    <ProjectContainer hasLink_web={link_web != undefined}>
       <ImageContainer>
-        <TbWorldUpload />
-        <Image src={projectImg} alt="" width={416} height={220} />
-        <a>Ver online</a>
+        {link_web && <TbWorldUpload />}
+        <Image src={image} alt="" width={416} height={220} />
+        {link_web && <a>Ver online</a>}
       </ImageContainer>
       <ProjectDetails>
         <TagsContainer>
@@ -23,14 +37,10 @@ export function Project() {
           <li>Next</li>
           <li>Styled-components</li>
         </TagsContainer>
-        <strong>Projeto 01</strong>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-          accusantium alias aut? Sequi optio ipsa impedit. Deleniti soluta harum
-          voluptatibus.
-        </p>
+        <strong>{title}</strong>
+        <p>{description}</p>
         <ExternalLink>
-          <a href="https://github.com" target="_blank" rel="noreferrer">
+          <a href={link_github} target="_blank" rel="noreferrer">
             <span>ver no github</span>
             <FaExternalLinkAlt />
           </a>

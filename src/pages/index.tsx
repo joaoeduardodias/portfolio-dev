@@ -1,6 +1,7 @@
 import { FormContact } from '@/components/FormContact'
 import { Header } from '@/components/Header'
 import { ListProjects } from '@/components/ListProjects'
+import { getPrismicClient } from '@/services/prismic'
 import {
   ButtonGithub,
   ButtonLinkedin,
@@ -14,6 +15,7 @@ import {
   TechnologiesContainer,
   Technology,
 } from '@/styles/pages/home'
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -27,7 +29,19 @@ import {
 } from 'react-icons/fa'
 import { SiNextdotjs, SiStyledcomponents } from 'react-icons/si'
 import imgProfile from '../assets/perfil.png'
-export default function Home() {
+
+interface HomeProps {
+  projects: {
+    id: string
+    title: string
+    description: string
+    image: string
+    link_web?: string
+    link_github: string
+  }[]
+}
+
+export default function Home({ projects }: HomeProps) {
   return (
     <>
       <Head>
@@ -112,11 +126,33 @@ export default function Home() {
           </Technology>
         </TechnologiesContainer>
 
-        <ListProjects />
+        <ListProjects projects={projects} />
 
         <FormContact id="contact" />
       </HomeContainer>
       <Footer>Criado por João Dias | 2023</Footer>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient()
+
+  const data = await prismic.getAllByType('projec')
+  const formattedProjects = data.map((project) => {
+    return {
+      id: project.id,
+      title: project.data.title,
+      description: project.data.description,
+      image: project.data.image.url,
+      link_web: project.data.link_web.url ? project.data.link_web.url : null,
+      link_github: project.data.link_github.url,
+    }
+  })
+  return {
+    props: {
+      projects: formattedProjects,
+    },
+    revalidate: 1 * 60 * 60 * 24 * 1, // 1 day
+  }
 }

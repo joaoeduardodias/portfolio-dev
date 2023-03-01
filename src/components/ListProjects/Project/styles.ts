@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+interface ProjectPros {
+  hasLink_web: boolean
+}
 
 export const ImageContainer = styled.div`
   width: 100%;
@@ -29,7 +33,7 @@ export const ImageContainer = styled.div`
   }
 `
 
-export const ProjectContainer = styled.li`
+export const ProjectContainer = styled.li<ProjectPros>`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -41,26 +45,30 @@ export const ProjectContainer = styled.li`
   background: ${({ theme }) => theme.colors['base-post']};
   border-radius: 10px;
   overflow: hidden;
+  ${(props) =>
+    props.hasLink_web &&
+    css`
+      &:hover {
+        transform: translateY(-1rem);
 
-  &:hover {
-    transform: translateY(-1rem);
+        ${ImageContainer} {
+          img {
+            transform: scale(1.1);
+            filter: blur(0.2rem);
+            -webkit-filter: blur(0.2rem);
+          }
+          svg {
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%) scale(2);
+          }
+          a {
+            opacity: 1;
+          }
+        }
+      }
+    `}
 
-    ${ImageContainer} {
-      img {
-        transform: scale(1.1);
-        filter: blur(0.2rem);
-        -webkit-filter: blur(0.2rem);
-      }
-      svg {
-        top: 50%;
-        right: 50%;
-        transform: translate(50%, -50%) scale(2);
-      }
-      a {
-        opacity: 1;
-      }
-    }
-  }
   @media (max-width: 460px) {
     transform: translateY(none);
 
