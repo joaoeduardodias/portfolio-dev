@@ -38,6 +38,7 @@ interface HomeProps {
     image: string
     link_web?: string
     link_github: string
+    technologies: string[]
   }[]
 }
 
@@ -147,6 +148,9 @@ export const getStaticProps: GetStaticProps = async () => {
       image: project.data.image.url,
       link_web: project.data.link_web.url ? project.data.link_web.url : null,
       link_github: project.data.link_github.url,
+      technologies: project.data.techs.map(
+        (item: { tech: string }) => item.tech,
+      ),
     }
   })
   return {

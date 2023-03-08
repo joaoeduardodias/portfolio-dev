@@ -16,6 +16,7 @@ interface ProjectProps {
   image: string
   link_web?: string
   link_github: string
+  technologies: string[]
 }
 
 export function Project({
@@ -24,6 +25,7 @@ export function Project({
   link_github,
   title,
   link_web,
+  technologies,
 }: ProjectProps) {
   return (
     <ProjectContainer hasLink_web={link_web != undefined}>
@@ -42,9 +44,9 @@ export function Project({
       </ImageContainer>
       <ProjectDetails>
         <TagsContainer>
-          <li>React</li>
-          <li>Next</li>
-          <li>Styled-components</li>
+          {technologies.map((tech) => (
+            <li key={tech}>{tech}</li>
+          ))}
         </TagsContainer>
         <strong>{title}</strong>
         <p>{description}</p>

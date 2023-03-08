@@ -9,6 +9,7 @@ interface ListProjectProps {
     image: string
     link_web?: string
     link_github: string
+    technologies: string[]
   }[]
 }
 
