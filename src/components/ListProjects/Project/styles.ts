@@ -35,6 +35,7 @@ export const ImageContainer = styled.div`
 
 export const ProjectContainer = styled.li<ProjectPros>`
   width: 100%;
+  max-width: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
