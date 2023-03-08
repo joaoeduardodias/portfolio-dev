@@ -174,14 +174,14 @@ export const Technology = styled.div`
     height: calc(100% + var(--border-width) * 2);
     background: linear-gradient(
       60deg,
-      rgba(97, 218, 251, 1) 20%,
-      rgba(163, 164, 164, 1) 58%,
-      rgba(73, 110, 161, 1) 66%,
-      rgba(41, 199, 32, 1) 74%,
-      rgba(100, 154, 168, 1) 100%,
-      rgba(34, 35, 101, 1) 40%,
-      rgba(33, 34, 34, 1) 41%,
-      rgba(182, 52, 214, 1) 86%
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
     );
     background-size: 300% 300%;
     background-position: 0 50%;
@@ -196,6 +196,7 @@ export const Technology = styled.div`
 
   svg {
     font-size: 3rem;
+    color: ${({ theme }) => theme.colors['brand-blue']};
   }
 
   @keyframes moveGradient {

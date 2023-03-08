@@ -27,7 +27,12 @@ import {
   FaReact,
   FaWhatsapp,
 } from 'react-icons/fa'
-import { SiNextdotjs, SiStyledcomponents } from 'react-icons/si'
+import {
+  SiChakraui,
+  SiNextdotjs,
+  SiSass,
+  SiStyledcomponents,
+} from 'react-icons/si'
 import imgProfile from '../assets/perfil.png'
 
 interface HomeProps {
@@ -124,6 +129,14 @@ export default function Home({ projects }: HomeProps) {
           <Technology>
             <SiStyledcomponents />
             <h3>Styled-components</h3>
+          </Technology>
+          <Technology>
+            <SiSass />
+            <h3>Sass</h3>
+          </Technology>
+          <Technology>
+            <SiChakraui />
+            <h3>Chakra UI</h3>
           </Technology>
         </TechnologiesContainer>
 
