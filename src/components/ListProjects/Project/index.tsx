@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 import { TbWorldUpload } from 'react-icons/tb'
 import {
@@ -27,9 +28,17 @@ export function Project({
   return (
     <ProjectContainer hasLink_web={link_web != undefined}>
       <ImageContainer>
-        {link_web && <TbWorldUpload />}
-        <Image src={image} alt="" width={416} height={220} />
-        {link_web && <a>Ver online</a>}
+        {link_web ? (
+          <>
+            <TbWorldUpload />
+            <Link href={String(link_web)} target="_blank">
+              <Image src={image} alt="" width={416} height={220} />
+            </Link>
+            <p>Ver online</p>
+          </>
+        ) : (
+          <Image src={image} alt="" width={416} height={220} />
+        )}
       </ImageContainer>
       <ProjectDetails>
         <TagsContainer>

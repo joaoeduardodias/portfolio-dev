@@ -21,7 +21,7 @@ export const ImageContainer = styled.div`
     font-size: 2rem;
     transition: all 0.5s ease-in;
   }
-  a {
+  p {
     font-size: ${({ theme }) => theme.textSizes['title-title-m']};
     color: white;
     position: absolute;
@@ -35,11 +35,10 @@ export const ImageContainer = styled.div`
 
 export const ProjectContainer = styled.li<ProjectPros>`
   width: 100%;
-  max-width: 20rem;
+  max-width: 22.5831rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
   cursor: pointer;
   transition: all 0.2s ease-in;
 
@@ -63,7 +62,7 @@ export const ProjectContainer = styled.li<ProjectPros>`
             right: 50%;
             transform: translate(50%, -50%) scale(2);
           }
-          a {
+          p {
             opacity: 1;
           }
         }
@@ -138,5 +137,6 @@ export const ProjectDetails = styled.div`
   }
   p {
     font-size: ${({ theme }) => theme.textSizes['text-text-m']};
+    min-height: 6.3125rem;
   }
 `
