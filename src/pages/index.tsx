@@ -33,6 +33,7 @@ import {
   SiSass,
   SiStyledcomponents,
 } from 'react-icons/si'
+import imgLogo from '../assets/logo_portfolio.svg'
 import imgProfile from '../assets/perfil.png'
 
 interface HomeProps {
@@ -144,7 +145,17 @@ export default function Home({ projects }: HomeProps) {
 
         <FormContact id="contact" />
       </HomeContainer>
-      <Footer>Criado por João Dias | 2023</Footer>
+      <Footer>
+        <div>
+          <p>
+            Copyright © 2023 <strong>devjoaodias.com</strong>. Todos os direitos
+            reservados.
+          </p>
+          <p>
+            Powered by <Image src={imgLogo} width={30} height={30} alt="" />{' '}
+          </p>
+        </div>
+      </Footer>
     </>
   )
 }

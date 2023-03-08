@@ -211,8 +211,28 @@ export const Technology = styled.div`
 `
 export const Footer = styled.footer`
   background-color: black;
+  height: 6rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 5rem;
+
+  div {
+    width: 100%;
+    height: 100%;
+    padding: 0 0.5rem;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  p:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  strong {
+    color: ${({ theme }) => theme.colors['brand-blue']};
+  }
 `
