@@ -1,19 +1,13 @@
-import { HeaderContainer } from './styles'
+import { BgImage, HeaderContainer, LogoImage } from './styles'
 
-import Image from 'next/image'
+import headerBg from '../../assets/headerBg.png'
 import logoImg from '../../assets/logo.svg'
 
 export function Header() {
   return (
     <HeaderContainer>
-      <Image
-        src={logoImg}
-        alt=""
-        width={122}
-        height={98}
-        priority
-        loading="lazy"
-      />
+      <BgImage src={headerBg} alt="background image" />
+      <LogoImage src={logoImg} alt="" width={122} height={98} loading="lazy" />
     </HeaderContainer>
   )
 }

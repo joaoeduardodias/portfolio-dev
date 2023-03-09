@@ -1,17 +1,25 @@
+import Image from 'next/image'
 import styled from 'styled-components'
-import headerBg from '../../assets/headerBg.png'
 
 export const HeaderContainer = styled.header`
-  background: url(${headerBg.src}) no-repeat center;
-  background-size: cover;
-  background-color: ${({ theme }) => theme.colors['base-background']};
   width: 100%;
   height: 20.5rem;
+
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+`
+export const BgImage = styled(Image)`
+  object-fit: cover;
+  height: 20.5rem;
+  position: absolute;
+  inset: 0;
+  width: 100%;
 
-  img {
-    margin-bottom: 7rem;
-  }
+  z-index: -1;
+`
+
+export const LogoImage = styled(Image)`
+  margin-bottom: 7rem;
 `
