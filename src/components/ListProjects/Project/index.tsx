@@ -34,12 +34,18 @@ export function Project({
           <>
             <TbWorldUpload />
             <Link href={String(link_web)} target="_blank">
-              <Image src={image} alt="" width={416} height={220} />
+              <Image
+                src={image}
+                alt=""
+                width={416}
+                height={220}
+                loading="lazy"
+              />
             </Link>
             <p>Ver online</p>
           </>
         ) : (
-          <Image src={image} alt="" width={416} height={220} />
+          <Image src={image} alt="" width={416} height={220} loading="lazy" />
         )}
       </ImageContainer>
       <ProjectDetails>
