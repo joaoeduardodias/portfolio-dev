@@ -6,7 +6,7 @@ import logoImg from '../../assets/logo.svg'
 export function Header() {
   return (
     <HeaderContainer>
-      <BgImage src={headerBg} alt="background image" />
+      <BgImage src={headerBg} alt="background image" loading="lazy" />
       <LogoImage src={logoImg} alt="" width={122} height={98} loading="lazy" />
     </HeaderContainer>
   )
